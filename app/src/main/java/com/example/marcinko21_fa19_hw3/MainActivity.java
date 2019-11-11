@@ -5,6 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 
+/**
+ * This is the MainActivity where the buttons connect to the actions
+ * I added a button that changes the color of the board when pressed
+ *
+ * @author Meredith Marcinko
+ * @version 9 November 2019
+ */
 public class MainActivity extends AppCompatActivity
 {
 

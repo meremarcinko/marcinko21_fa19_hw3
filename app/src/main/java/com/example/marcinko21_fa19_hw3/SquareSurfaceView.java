@@ -64,7 +64,9 @@ public class SquareSurfaceView extends SurfaceView implements View.OnTouchListen
 	 *
 	 * Solution: Fredrik helped me with the logic of how to draw the board and connect it
 	 * to the code that makes it work
-	 *
+	 */
+
+	/**
 	 * onDraw method:
 	 *      this is the method in which the board is drawn on the canvas
 	 * @param canvas
@@ -303,6 +305,18 @@ public class SquareSurfaceView extends SurfaceView implements View.OnTouchListen
 		invalidate();
 		return true;
 	}//onTouch
+
+	/**
+	 * External citation:
+	 * Problem: I wasnt sure how to impelment multiple buttons
+	 *
+	 * solution: I used a lecture code that I wrote during the lecture:
+	 *      SV_TouchEvents
+	 *
+	 * Problem: I couldnt remember how to do random colors
+	 *
+	 * Solution: I used a lecture code Lecture8
+	 */
 
 	/**
 	 * onClick method:
