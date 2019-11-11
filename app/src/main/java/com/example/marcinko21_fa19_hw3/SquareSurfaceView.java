@@ -316,6 +316,7 @@ public class SquareSurfaceView extends SurfaceView implements View.OnTouchListen
 	 * Problem: I couldnt remember how to do random colors
 	 *
 	 * Solution: I used a lecture code Lecture8
+	 *
 	 */
 
 	/**
