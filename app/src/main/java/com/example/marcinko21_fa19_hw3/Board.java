@@ -2,6 +2,12 @@ package com.example.marcinko21_fa19_hw3;
 
 import java.util.Random;
 
+/**
+ * This is the Board Class that creates the sqaures for the board in the game
+ *
+ * @author Meredith Marcinko
+ * @version 8 November 2019
+ */
 public class Board
 {
 
@@ -10,8 +16,13 @@ public class Board
 	private int x;
 	private int y;
 
-
-
+	/**
+	 * This is the constructor for the board class
+	 * it creates the board
+	 * @param x the x coordinate for the board
+	 * @param y the y coordinate for the board
+	 * @param size the size of the board
+	 */
 	public Board(int x, int y, int size)
 	{
 		this.x = x;
@@ -43,16 +54,32 @@ public class Board
 
 	}//Board
 
+	/**
+	 * boardSize method:
+	 *      method that has the size of the board
+	 * @return
+	 *      the size of the board
+	 */
 	public int boardSize()
 	{
 		return size;
 	}//boardSize
 
+	/**
+	 * Square method:
+	 *      creates the invisible grid
+	 * @return
+	 *      the board
+	 */
 	public Square[][] getSquare()
 	{
 		return board;
 	}//getSquare
 
+	/**
+	 * randomize method:
+	 *      this method randomizes the numbers on the board
+	 */
 	public void randomize()
 	{
 		int z = boardSize()-1;

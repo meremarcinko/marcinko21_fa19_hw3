@@ -13,6 +13,13 @@ import android.widget.Button;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * This is the SquareSufaceView Class. The board is drawn in this class and the
+ * surface gets connected to the actions
+ *
+ * @author Meredith Marcinko
+ * @version 9 November 2019
+ */
 public class SquareSurfaceView extends SurfaceView implements View.OnTouchListener, View.OnClickListener
 {
 
@@ -23,6 +30,12 @@ public class SquareSurfaceView extends SurfaceView implements View.OnTouchListen
 	private Paint background = new Paint();
 	private Paint numPaint = new Paint();
 
+	/**
+	 * This is the constructor where the surface view gets the context and the
+	 * arrtibutes that are created
+	 * @param context
+	 * @param attrs
+	 */
 	public SquareSurfaceView(Context context, AttributeSet attrs)
 	{
 		super(context, attrs);
@@ -30,6 +43,11 @@ public class SquareSurfaceView extends SurfaceView implements View.OnTouchListen
 		setBoardSize(boardSize);
 	}//SquareSurfaceView
 
+	/**
+	 * setBoardSize method:
+	 *      this is the method that sets the size of the board
+	 * @param theSize
+	 */
 	public void setBoardSize(int theSize)
 	{
 		boardSize = theSize;
@@ -47,6 +65,8 @@ public class SquareSurfaceView extends SurfaceView implements View.OnTouchListen
 	 * Solution: Fredrik helped me with the logic of how to draw the board and connect it
 	 * to the code that makes it work
 	 *
+	 * onDraw method:
+	 *      this is the method in which the board is drawn on the canvas
 	 * @param canvas
 	 */
 	public void onDraw(Canvas canvas)
@@ -102,6 +122,14 @@ public class SquareSurfaceView extends SurfaceView implements View.OnTouchListen
 		}
 	}//onDraw
 
+	/**
+	 * checkIfGameOver method:
+	 *      this method checks if the numbers are in order and the game is over
+	 * @param board
+	 * @param size
+	 * @return
+	 *      true is the game is over
+	 */
 	public boolean checkIfGameOver(Square[][] board, int size)
 	{
 		ArrayList<Integer> list = new ArrayList<>();
@@ -126,6 +154,15 @@ public class SquareSurfaceView extends SurfaceView implements View.OnTouchListen
 		return false;
 	}//checkIfGameOver
 
+	/**
+	 * getCoordinates method:
+	 *      this is the method for finding the coordinates of the square
+	 *      that the user has touched
+	 * @param row
+	 * @param col
+	 * @return
+	 *      an array of the values for left, right, top and bottom
+	 */
 	private int[] getCoordinates(int row, int col)
 	{
 
@@ -198,6 +235,14 @@ public class SquareSurfaceView extends SurfaceView implements View.OnTouchListen
 
 	}//getCoordinates
 
+	/**
+	 * onTouch method:
+	 *      this method is where the listeners interact with the board
+	 * @param v
+	 * @param event
+	 * @return
+	 *      returns true if the surfaceView was clicked
+	 */
 	public boolean onTouch(View v, MotionEvent event)
 	{
 		int left;
@@ -259,6 +304,10 @@ public class SquareSurfaceView extends SurfaceView implements View.OnTouchListen
 		return true;
 	}//onTouch
 
+	/**
+	 * onClick method:
+	 *      listens to the clicks of the button and responds appropriately
+	 */
 	@Override
 	public void onClick(View v)
 	{
@@ -275,12 +324,6 @@ public class SquareSurfaceView extends SurfaceView implements View.OnTouchListen
 			Random randomNum = new Random();
 			numPaint.setARGB(255,randomNum.nextInt(256), randomNum.nextInt(256),
 					randomNum.nextInt(256));
-			invalidate();
-		}
-
-		if(label.charAt(0) == 'S')
-		{
-			boardSize = 7;
 			invalidate();
 		}
 	}

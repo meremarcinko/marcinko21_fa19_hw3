@@ -25,9 +25,6 @@ public class MainActivity extends AppCompatActivity
 		Button randomColor = findViewById(R.id.randomColorButton);
 		randomColor.setOnClickListener(SqrSV);
 
-		Button sevenButton = findViewById(R.id.SevenBoardButton);
-		sevenButton.setOnClickListener(SqrSV);
-
 
 	}
 }
