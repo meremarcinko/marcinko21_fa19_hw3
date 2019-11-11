@@ -1,42 +1,75 @@
 package com.example.marcinko21_fa19_hw3;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 public class Board
 {
 
-	int[][] board;
-	ArrayList<Integer> boardNum;
-	protected int r; //row
-	protected int c; //col
+	private Square[][] board;
+	private int size;
+	private int x;
+	private int y;
 
 
 
-	public Board()
+	public Board(int x, int y, int size)
 	{
-		board = new int[4][4];
-		boardNum = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15));
-	}
+		this.x = x;
+		this.y = y;
+		this.size = size;
 
-	public int randomize(int n)
-	{
-		Random randomNum = new Random();
-		return randomNum.nextInt(n); //pick a random number for numbers 0-15
-	}
+		int side = 200;
+		int counter = 0;
+		board = new Square[size][size];
 
-	public void placeNum()
-	{
-
-		for(int i=0; i<4; i++)
+		for(int i = 0; i<size; i++)
 		{
-			for(int j=0; j<4; j++)
+			for(int j = 0; j<size; j++)
 			{
-				int rn = randomize(boardNum.size());
-				board[i][j] = boardNum.get(rn);
-				boardNum.remove(rn);
+				if(i==size-1 && j==size-1)
+				{
+					Square s = new Square(x + (j) * side,  y + (i) * side, side, 0);
+					board[i][j] = s;
+				}
+				else
+				{
+					counter++;
+					Square s = new Square(x + (j) * side, y + (i) * side, side, counter);
+					board[i][j] = s;
+				}
 			}
 		}
-	}
-}
+		randomize();
+
+	}//Board
+
+	public int boardSize()
+	{
+		return size;
+	}//boardSize
+
+	public Square[][] getSquare()
+	{
+		return board;
+	}//getSquare
+
+	public void randomize()
+	{
+		int z = boardSize()-1;
+		int y = boardSize()-1;
+		Random randomNum = new Random();
+
+		for(int i = 0; i<boardSize(); i++)
+		{
+			for(int j = 0; j<boardSize(); j++)
+			{
+				int ranNum = randomNum.nextInt(z);
+				int ranNum2 = randomNum.nextInt(y);
+				int temp = board[ranNum][ranNum2].getNum();
+				board[ranNum][ranNum2].setNum(board[i][j].getNum());
+				board[i][j].setNum(temp);
+			}
+		}
+
+	}//randomize
+}//Board Class
