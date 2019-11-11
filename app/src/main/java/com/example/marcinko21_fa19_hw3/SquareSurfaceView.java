@@ -89,6 +89,7 @@ public class SquareSurfaceView extends SurfaceView implements View.OnTouchListen
 			{
 				paint.setColor(Color.GREEN);
 
+				//the location for the grid of the board
 				int leftSide = theSquare[i][j].getX();
 				int rightSide = theSquare[i][j].getX() + theSquare[i][j].getSide();
 				int top = theSquare[i][j].getY();
@@ -98,6 +99,7 @@ public class SquareSurfaceView extends SurfaceView implements View.OnTouchListen
 
 				paint.setColor(Color.WHITE);
 
+				//the location of the squares for the board
 				leftSide = theSquare[i][j].getX()+1;
 				rightSide = theSquare[i][j].getX() + theSquare[i][j].getSide()-1;
 				top = theSquare[i][j].getY()+1;
@@ -108,10 +110,12 @@ public class SquareSurfaceView extends SurfaceView implements View.OnTouchListen
 				paint.setColor(Color.BLUE);
 				paint.setTextSize(50);
 
+				//the location for putting the numbers
 				int value = theSquare[i][j].getNum();
 				int x = theSquare[i][j].getX() + theSquare[i][j].getSide() /2;
 				int y = theSquare[i][j].getY() + theSquare[i][j].getSide() /2;
 
+				//put the numbers in the square
 				if(value > 0)
 				{
 					canvas.drawText("" + value, x, y, paint);
@@ -173,6 +177,7 @@ public class SquareSurfaceView extends SurfaceView implements View.OnTouchListen
 		int top;
 		int bottom;
 		int[] coordinates = new int[4];
+
 
 		if (row - 1 < 0 && col - 1 < 0) {
 			left = -1;
@@ -328,12 +333,13 @@ public class SquareSurfaceView extends SurfaceView implements View.OnTouchListen
 	{
 		Button theOneClicked = (Button)v;
 		CharSequence label = theOneClicked.getText();
+		//button to shuffle the board
 		if(label.charAt(0) == 'S')
 		{
 			board.randomize();
 			invalidate();
 		}
-
+		//button for random color
 		if(label.charAt(0) == 'R')
 		{
 			Random randomNum = new Random();
